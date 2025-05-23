@@ -1,0 +1,22 @@
+{
+    "tasks": [
+        {
+            "id": 1,
+            "title": "Crear task tracker",
+            "description": "php, poo, autoload, namespaces",
+            "state": 0
+        },
+        {
+            "id": "682cac3c0d0e8",
+            "title": "hacer ejericio",
+            "description": "hacer ejericio",
+            "state": 0
+        },
+        {
+            "id": "682f5c28128f0",
+            "title": "hacer hit",
+            "description": "cardio, pierna",
+            "state": 0
+        }
+    ]
+}
