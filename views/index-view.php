@@ -6,7 +6,7 @@
         <?php
             $estadoSeleccionado = $_COOKIE["estado"] ?? "todos"
         ?>
-        <select class="px-3 py-1 text-lg border bg-slate-500 text-white transition-all cursor-pointer duration-300 hover:bg-slate-600 outline-none rounded-sm" onchange="guardarSeleccion(this.value)" id="estado" name="estado">
+        <select class="px-3 py-1 text-lg border bg-slate-500 text-white transition-all cursor-pointer duration-300 hover:bg-slate-600 outline-none rounded-sm" onchange="guardarSeleccion(this.value)" id="estado_select" name="estado">
             <option value="todos" <?= $estadoSeleccionado == "todos" ? "selected":""; ?> >-- Todos --</option>
             <option value="0" <?= $estadoSeleccionado == "0" ? "selected":""; ?>>Pendiente</option>
             <option value="1" <?= $estadoSeleccionado == "1" ? "selected":""; ?>>En Proceso</option>

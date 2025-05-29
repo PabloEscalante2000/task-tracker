@@ -42,6 +42,8 @@ formCrear.addEventListener("submit",function(e){
     });
 })
 
+
+
 function alertas_ajax(alerta){
     Swal.fire({
         icon:alerta.icono,
@@ -80,4 +82,8 @@ function guardarSeleccion(valor) {
     document.cookie = "estado="+valor+";expires="+tiempoExpira.toUTCString() + ";path=/"
 
     reescribirLista()
+}
+
+function eliminarTask(boton){
+    console.log(boton.dataset.id)
 }

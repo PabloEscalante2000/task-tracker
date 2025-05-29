@@ -1,11 +1,18 @@
 <?php
-    $json = file_get_contents("./data/data.json");
+    $path = __DIR__ ."/../data/data.json";
+    $json = file_get_contents($path);
     $tasks = json_decode($json,true);
     $tasks = $tasks["tasks"];
-    if(isset($_COOKIE["estado"]) || $_COOKIE["estado"]!=="todos"){
-        $estado_c = (int) $_COOKIE["estado"];
-        $tasks = array_filter($tasks,fn($task,$k) => $task["state"]==$estado_c,ARRAY_FILTER_USE_BOTH);
+    if(isset($_COOKIE["estado"])){
+        if($_COOKIE["estado"] !== "todos"){
+            $estado_c = (int) $_COOKIE["estado"];
+            $tasks = array_filter($tasks,function($task) use ($estado_c){
+                return $task["state"] == $estado_c;
+            });
+        } 
     }
+
+    if(count($tasks)> 0):
 
     foreach ($tasks as $task):
 ?>
@@ -29,7 +36,16 @@
                     endswitch;
             ?>
             <button class="px-3 py-1 rounded-sm shadow-sm bg-slate-500 text-white cursor-pointer">Cambiar</button>
-            <button class="px-3 py-1 rounded-sm shadow-sm bg-red-500 text-white cursor-pointer">Eliminar</button>
+            <button class="px-3 py-1 rounded-sm shadow-sm bg-red-500 text-white cursor-pointer" onclick="eliminarTask(this)" data-id="<?php echo $task["id"] ?>">Eliminar</button>
         </div>
     </div>
-<?php endforeach; ?>
+<?php 
+    endforeach;
+    else:
+?>
+    <div class="text-center text-xl text-slate-300 font-black">
+        No hay tareas
+    </div>
+<?php
+    endif;  
+?>
