@@ -35,8 +35,10 @@
                         break;
                     endswitch;
             ?>
-            <button class="px-3 py-1 rounded-sm shadow-sm bg-slate-500 text-white cursor-pointer">Cambiar</button>
-            <button class="px-3 py-1 rounded-sm shadow-sm bg-red-500 text-white cursor-pointer" onclick="eliminarTask(this)" data-id="<?php echo $task["id"] ?>">Eliminar</button>
+            <div class="flex justify-center items-center gap-5">
+                <a class="w-20 h-10 rounded-sm shadow-sm bg-slate-500 text-white cursor-pointer block text-center flex justify-center items-center" href="http://localhost:8080/task-tracker/actualizar/<?php echo $task["id"] ?>">Cambiar</a>
+                <button class="w-20 h-10 rounded-sm shadow-sm bg-red-500 text-white cursor-pointer block" onclick="eliminarTask(this)" data-id="<?php echo $task["id"] ?>">Eliminar</button>
+            </div>
         </div>
     </div>
 <?php 

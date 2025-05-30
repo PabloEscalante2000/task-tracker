@@ -23,7 +23,7 @@
             require_once "./views/404-view.php";
         }
     ?>
-    <script src="./js/ajax.js"></script>
-    <script src="./js/list.js"></script>
 </body>
+<script src="/task-tracker/js/ajax.js"></script>
+<script src="/task-tracker/js/list.js"></script>
 </html>
