@@ -85,5 +85,47 @@ function guardarSeleccion(valor) {
 }
 
 function eliminarTask(boton){
-    console.log(boton.dataset.id)
+
+    Swal.fire({
+        title: "¿Estás seguro?",
+        text: "¿Quieres eliminar la tarea seleccionada?",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Sí, realizar",
+        cancelButtonText: "No, cancelar"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            
+            const data = new FormData();
+            data.append("id",boton.dataset.id)
+
+            let method = "POST"
+            let action = "./logic/eliminar-logic.php"
+
+            let encabezados = new Headers();
+
+            let config = {
+                method: method,
+                headers:encabezados,
+                mode: "cors",
+                cache: "no-cache",
+                body: data
+            }
+
+            fetch(action,config)
+            .then(respuesta => {
+                return respuesta.json()
+            })
+            .then(respuesta => {
+                alertas_ajax(respuesta)
+                if(respuesta.icono === "success"){
+                    reescribirLista()
+                }
+            })
+            .catch(err => console.log(err));
+
+        }
+    });
 }
