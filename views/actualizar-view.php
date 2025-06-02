@@ -18,7 +18,7 @@
 <main class="w-full h-dvh flex justify-center items-center flex-col gap-3">
     <h1 class="font-bold text-2xl">Update Task</h1>
     <form class="p-5 border shadow-sm max-w-full flex flex-col gap-3 rounded-sm shadow-sm" action="/task-tracker/logic/actualizar-logic.php" method="POST" id="form-actualizar">
-        <input type="hidden" value="<?= $task_def["id"] ?>" name="id-actualizar" />
+        <input type="hidden" value="<?= $task_def["id"] ?>" name="id-actualizar" id="id-actualizar" />
         <label for="title">Tìtulo:</label>
         <input class="outline-none p-1 border rounded-sm shadow-sm" type="text" name="title-actualizar" id="title-actualizar" required value="<?= $task_def["title"] ?>"/>
         <label for="description">Descripción:</label>
